@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# ---------------- SETTINGS ----------------
+# ---------------- SETTINGS ---------------
 
 PORT = "COM10"
 BAUD = 460800
