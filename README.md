@@ -1,5 +1,7 @@
 # ESP32-Real-Time-Signal-Analyzer
+
 ESP32-based real-time signal acquisition and analysis system with OLED UI, Python/NumPy DSP, FFT, harmonic analysis, THD and live spectrogram visualization.
+
 ## Hardware Used
 
 | Component | Purpose |
@@ -7,10 +9,10 @@ ESP32-based real-time signal acquisition and analysis system with OLED UI, Pytho
 | ESP32 Development Board | Main controller, ADC sampling and serial communication |
 | 0.96" 128×64 SSD1306 OLED | On-device menu and live measurement display |
 | 10 kΩ Potentiometer | Menu navigation |
+| 10 kΩ Resistor | ADC input pull-down on GPIO34 to prevent floating readings when no signal is connected |
 | ON/OFF Rocker Switch | Menu selection / navigation |
 | Breadboard | Circuit prototyping |
 | Jumper Wires | Electrical connections |
-| Resistors | Voltage-divider/testing circuits |
 | USB Cable | ESP32 power, programming and serial communication |
 | PC/Laptop | Python-based signal processing and visualization |
 
@@ -19,6 +21,7 @@ ESP32-based real-time signal acquisition and analysis system with OLED UI, Pytho
 | Function | ESP32 Pin |
 |---|---:|
 | Signal Input / ADC | GPIO 34 |
+| ADC Pull-down | GPIO 34 → 10 kΩ → GND |
 | Potentiometer | GPIO 35 |
 | Menu Switch | GPIO 27 |
 | OLED SDA | GPIO 32 |
