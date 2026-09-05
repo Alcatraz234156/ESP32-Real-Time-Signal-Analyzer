@@ -2,6 +2,10 @@
 
 ESP32-based real-time signal acquisition and analysis system with OLED UI, Python/NumPy DSP, FFT, harmonic analysis, THD and live spectrogram visualization.
 
+## Hardware Setup
+
+![ESP32 Real-Time Signal Analyzer Hardware](images/Main-C1.jpg)
+
 ## Hardware Used
 
 | Component | Purpose |
@@ -27,6 +31,12 @@ ESP32-based real-time signal acquisition and analysis system with OLED UI, Pytho
 | OLED SDA | GPIO 32 |
 | OLED SCL | GPIO 33 |
 
+## System Architecture
+
+![ESP32 Signal Analyzer Circuit Diagram](images/Circuit-diagram.png)
+
+The ESP32 acquires the input signal through its ADC and performs basic measurements for the on-device OLED interface. Raw sample buffers are also transmitted to the PC, where Python and NumPy perform FFT, harmonic and THD analysis while Matplotlib provides real-time visualization.
+
 ## Software & Libraries
 
 | Software / Library | Purpose |
@@ -44,3 +54,19 @@ ESP32-based real-time signal acquisition and analysis system with OLED UI, Pytho
 
 - **C++** — ESP32 firmware
 - **Python** — PC-side DSP, analysis and visualization
+
+## Signal Analysis
+
+The system was tested using a known 100 Hz square-wave signal.
+
+![100 Hz Square Wave Analysis](images/M-3.png)
+
+The analyzer detected the waveform as a square wave at approximately 99 Hz with a duty cycle close to 50%. The PC application additionally displays the FFT/harmonic spectrum, THD and live spectrogram.
+
+## DC Measurement
+
+The analyzer was also tested using an AA battery as a real-world DC source.
+
+![AA Battery DC Measurement](images/AA-2.png)
+
+The measured voltage was approximately 1.49 V and the signal was correctly classified as DC.
